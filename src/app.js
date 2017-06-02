@@ -7,15 +7,15 @@ const START = 'Great! Try saying a number to start the game.';
 const THANK_YOU_COME_AGAIN = 'Thank you! Come again.';``
 
 var states = {
-  GUESSMODE: '_GUESSMODE',
   STARTMODE: '_STARTMODE',
+  GUESSMODE: '_GUESSMODE'
 }
 
 module.exports.handlers = {
     LaunchRequest() {
         this.emit(':tell', WELCOME_MESSAGE);
 
-        if (Object.keys(this.attributes.length) === 0) {
+        if (Object.keys(this.attributes).length === 0) {
             this.attributes.gamesPlayed = 0;
         }
 
