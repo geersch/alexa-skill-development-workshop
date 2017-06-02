@@ -67,6 +67,9 @@ module.exports.guessModeHandlers = Alexa.CreateStateHandler(states.GUESSMODE, {
         this.emit(':tell', guessNum);
 
         // this.emit('NotANum');
+    },
+    UnHandled() {
+      this.emit(':ask', 'Sorry, I didn\'t get that. Try saying a number.', 'Try saying a number.');
     }
 });
 
