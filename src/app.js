@@ -29,8 +29,10 @@ module.exports.handlers = {
 
 module.exports.startModeHandlers = Alexa.CreateStateHandler(states.STARTMODE, {
     Start() {
-        this.emit(':tell', `Welcome to High Lowe guessing game. You have played ${this.attributes.gamesPlayed.toString()}  times. Would  you like to play?`);
-
+        this.emit(
+          ':tell',
+          `Welcome to High Lowe guessing game. You have played ${this.attributes.gamesPlayed.toString()}  times. Would  you like to play?`
+        );
     },
     'AMAZON.YesIntent': function () {
         this.attributes.guessNumber = Math.floor(Math.random() * 100);
@@ -53,17 +55,19 @@ module.exports.startModeHandlers = Alexa.CreateStateHandler(states.STARTMODE, {
 
     },
     Unhandled() {
-
+        this.emitWithState('Start');
     }
 });
 
 module.exports.guessModeHandlers = Alexa.CreateStateHandler(states.GUESSMODE, {
+    NumberGuessIntent() {
 
+        const guessNum = parseInt(this.event.request.intent.slots.number.value, 10);
+
+        this.emit(':tell', guessNum);
+
+        // this.emit('NotANum');
+    }
 });
 
 
-var NumberGuessIntentHandlers = {
-    'NumberGuessIntent': function () {
-
-    }
-}
