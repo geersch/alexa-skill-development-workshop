@@ -69,7 +69,12 @@ module.exports.guessModeHandlers = Alexa.CreateStateHandler(states.GUESSMODE, {
             this.emit(':ask', `The number ${guess.toString()} is too low.`);
 
         } else if (guess === this.attributes.guessNumber) {
-            this.emit(':tell', 'Bingo!');
+              this.handler.state = states.STARTMODE;
+              this.attributes.gamesPlayed++;
+            this.emit(':ask', 'Bingo! Would you like to play a new game?');
+        } else {
+
+            this.emit(':ask', 'What the fuck. That is not a number you idiot. Try again.');
         }
 
 
