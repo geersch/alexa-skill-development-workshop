@@ -1,6 +1,5 @@
 const Alexa = require('alexa-sdk');
 
-const WELCOME_MESSAGE = `Welcome to High Lowe guessing game. You have played ${this.attributes.gamesPlayed.toString()}  times. Would  you like to play?`;
 
 const TOO_LOW = '{number} is too low';
 const TOO_HIGH = 'Just like you in Amsterdam last week, this {number} is too high';
@@ -15,7 +14,7 @@ var states = {
 
 module.exports.handlers = {
     LaunchRequest() {
-        this.emit(':tell', WELCOME_MESSAGE);
+        this.emit(':tell', `Welcome to High Lowe guessing game. You have played ${this.attributes.gamesPlayed.toString()}  times. Would  you like to play?`);
 
         if (Object.keys(this.attributes).length === 0) {
             this.attributes.gamesPlayed = 0;
