@@ -1,3 +1,5 @@
+const Alexa = require('alexa-sdk');
+
 const WELCOME_MESSAGE = `Welcome to High Lowe guessing game. You have played ${this.attributes.gamesPlayed.toString()}  times. Would  you like to play?`;
 
 const TOO_LOW = '{number} is too low';
