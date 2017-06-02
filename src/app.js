@@ -63,24 +63,20 @@ module.exports.guessModeHandlers = Alexa.CreateStateHandler(states.GUESSMODE, {
         const guess = parseInt(this.event.request.intent.slots.number.value, 10);
 
         if (guess > this.attributes.guessNumber) {
-
             this.emit(':ask', `Just like you in Amsterdam last week, the number ${guess.toString()} is too high.`);
         } else if (guess < this.attributes.guessNumber) {
             this.emit(':ask', `The number ${guess.toString()} is too low.`);
-
         } else if (guess === this.attributes.guessNumber) {
               this.handler.state = states.STARTMODE;
               this.attributes.gamesPlayed++;
             this.emit(':ask', 'Bingo! Would you like to play a new game?');
         } else {
-
             this.emit(':ask', 'What the fuck. That is not a number you idiot. Try again.');
         }
 
-
     },
     UnHandled() {
-      this.emit(':ask', 'Sorry, I didn\'t get that. Try saying a number.', 'Try saying a number.');
+      this.emit(':ask', 'What the fuck. That is not a number you idiot. Try again.');
     }
 });
 
