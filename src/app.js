@@ -1,4 +1,4 @@
-const WELCOME_MESSAGE = 'Hello my bitch CG!';
+const WELCOME_MESSAGE = 'Welcome to High Lower guessing game. You have played 0 times. Would  you like to play?';
 
 module.exports.handlers = {
     LaunchRequest() {
