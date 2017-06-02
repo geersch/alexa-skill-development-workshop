@@ -36,7 +36,7 @@ module.exports.startModeHandlers = Alexa.CreateStateHandler(states.STARTMODE, {
     'AMAZON.YesIntent': function () {
         this.attributes.guessNumber = Math.floor(Math.random() * 100);
         this.handler.state = states.GUESSMODE;
-        this.emit(':ask', 'Great! Try saying a number to start the game.');
+        this.emit(':ask', 'Covfefe');
     },
     'AMAZON.NoIntent': function () {
         this.emit(':tell', THANK_YOU_COME_AGAIN);
